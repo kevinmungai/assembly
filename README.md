@@ -24,6 +24,18 @@
 	.code
 	;; where your code resides
 
+start:                       ;; "start" this has no special meaning
+                             ;; it is just a way to organize code
+							 
+	;; this is how assembly programs are ended
+
+	mov ax, 4C00h            ;; "copy" 4C into 'ah' and 00 into 'al'
+	int 21h                  ;; return control back to the operating system
+	                         
+
+
+end start                    ;; closes out the code organization
+
 	ret
 ```
 
