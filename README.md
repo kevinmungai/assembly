@@ -7,7 +7,8 @@
 | 1h          | accept keyboard input      | copies a character into register `al`               |
 | 2h          | display a character        | displays a character from register `dl`             |
 | 9h          | output a string            |                   |
-
+| 10d         | display line feed (or go the begining of the current line) |                     |
+|13d          | carriage return (go to the next line) used in conjuction with `10d`  |           |
 
 
 
