@@ -4,8 +4,8 @@
 
 | sub-program | function                  | register affected |
 |-------------| -------------------------- | ----------------- |
-| 2h          | display a character        | displays a character from register `dl`             |
 | 1h          | accept keyboard input      | copies a character into register `al`               |
+| 2h          | display a character        | displays a character from register `dl`             |
 | 9h          | output a string            |                   |
 
 
@@ -14,6 +14,8 @@
 ## assembly program format
 
 ```assembly
+;; this program does nothing
+
 	org 100h
 	
 	.model small             ;; the size of the program 
@@ -27,6 +29,7 @@
 start:                       ;; "start" this has no special meaning
                              ;; it is just a way to organize code
 							 
+
 	;; this is how assembly programs are ended
 
 	mov ax, 4C00h            ;; "copy" 4C into 'ah' and 00 into 'al'
