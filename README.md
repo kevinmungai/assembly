@@ -45,3 +45,43 @@ end start                    ;; closes out the code organization
 ```
 
 
+### Hello World
+
+```assembly
+	org 100h
+
+	.model small
+	.stack 100h
+	
+	
+;; this is a 'pre-processor' that allows us to store data
+;;  without thinking where in the world it is actually stored
+;; all strings should end with a '$' sign to show termination
+	.data        
+hello_world db "Hello, World!", 13d, 10d, '$'	
+
+	
+	.code
+	
+start:
+	mov ax, @data               ;; copy the pointer to 'data' into the 'ax' register 
+	mov ds, ax                  ;; then move that pointer into the 'ds' register
+	                            ;; 'ds' data segment register
+	
+	
+	mov dx, offset hello_world  ;; set the beginning of the message into the 'dx' register
+	                            ;; this makes it ready for displaying 
+	mov ah, 9                   ;; '9' or '9d' or '9h' displays what strings
+	int 21h                     ;; return operation back to the operating system to allow execution
+	
+	
+	
+	;; ending the program
+	mov ax, 4C00h
+	int 21h
+	
+
+
+end start
+	ret
+```
